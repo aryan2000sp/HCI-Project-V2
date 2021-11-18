@@ -1,0 +1,197 @@
+.main-section {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-top: 12rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-section {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* background-color: #fafafa; */
+}
+
+.profile-info {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* background-color: #fafafa;
+  color: #242d52; */
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* .percent-info {
+  background-color: #fafafa;
+} */
+
+.profile-pic {
+  margin: 3.5rem 0;
+
+  /* padding: 5rem; */
+  /* background-color: #f25f3a; */
+  /* background-color: #fafafa; */
+}
+
+.profile-pic img {
+  display: block;
+  /* width: 100%; */
+  max-width: 200px;
+
+  background-color: #eba06d;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  /* width: 128px; */
+  /* height: 128px; */
+}
+
+.profile-desc {
+  text-align: center;
+}
+
+.profile-desc-name {
+  margin-bottom: 3rem;
+}
+
+.weight-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.change-weight-btn {
+  margin-top: 2.5rem;
+}
+
+.info-section {
+  padding: 0 3rem;
+  width: 50%;
+  text-align: center;
+}
+
+.info-section-col {
+  /* color: #242d52;
+  background-color: #fafafa; */
+  /* background-color: #242d52; */
+  /* color: #fafafa; */
+  /* border: 1.5px solid #000; */
+  border-radius: 8px;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info-section-col-1-title {
+  margin-bottom: 3rem;
+}
+
+.calorie-info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.calorie-count {
+  margin-bottom: 1.5rem;
+}
+
+.custom-progress {
+  width: 50%;
+}
+
+.percent-info {
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+}
+
+.quick-tools {
+  width: 25%;
+  /* padding: 0 3rem; */
+  /* padding-left: 3rem; */
+}
+
+.quick-tools-col {
+  /* color: #242d52;
+  background-color: #fafafa; */
+  /* background-color: #242d52; */
+  /* color: #fafafa; */
+  width: 100%;
+  /* height: 200px; */
+  /* background-color: #9095a7; */
+  padding: 2rem;
+  // height: 275px;
+  margin-bottom: 1.5rem;
+
+  /* border: 1px solid #000; */
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+// .quick-tools-col:not(:last-child) {
+// }
+
+.quick-add-btn {
+  margin-top: 2.5rem;
+  /* background-color: #eba06d !important;
+  border-color: #eba06d !important;
+  color: #242d52 !important; */
+}
+
+.macro-nutrients-chart-wrapper {
+  width: 100%;
+  height: 400px;
+}
+
+.custom-select {
+  width: 25%;
+}
+
+.carousel-control-prev {
+  width: 5%;
+}
+
+.quick-food-modal {
+  display: flex;
+  flex-direction: row;
+  div:not(:last-child) {
+    margin-right: 1rem;
+  }
+  align-items: center;
+}
+
+.food-modal-nav {
+  list-style-type: none;
+
+  display: flex;
+  flex-direction: row;
+
+  li {
+    margin-right: 4rem;
+    cursor: pointer;
+    .active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.modal-footer {
+  padding-top: 2rem;
+  justify-content: flex-start;
+}

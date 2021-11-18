@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@300&display=swap");
+
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*
+  For dark theme the color of the main is black
+ */
+.dark-theme {
+  background-color: #242d52;
+  color: #fafafa;
+}
+
+/*
+  For the light theme the color of the main is blue
+ */
+.light-theme {
+  background-color: #fafafa;
+  color: #242d52;
+}
+.light-theme-btn {
+  background-color: #eba06d !important;
+  border-color: #eba06d !important;
+  color: #242d52;
+}
+
+.dark-theme-btn {
+  background-color: #0c998b !important;
+  border-color: #0c998b !important;
+  color: #242d52;
+}
+
+a {
+  text-decoration: none;
+  // color: #242d52;
+}
+
+h1 {
+  /* color: #242d52; */
+  font-family: Spartan, sans-serif;
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -0.8px;
+  margin-bottom: 0;
+}
+
+h2 {
+  /* color: #242d52; */
+  font-family: Spartan, sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-family: Spartan, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.225px;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-family: Spartan, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.225px;
+  margin-bottom: 0;
+}
+
+p {
+  font-family: Spartan, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: -0.225px;
+  margin-bottom: 0;
+}
+
+ul {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+// Centers the item
+.center-vertical {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.semi-bold {
+  font-family: Spartan, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 2px;
+}
+
+.semi-bold-1 {
+  font-family: Spartan, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 2px;
+}
+
+main {
+  height: auto;
+  padding: 0rem 2rem;
+  background-color: #6db8eb;
+}
+
+@media (min-height: 1160px) {
+  main {
+    height: 100vh;
+  }
+}
