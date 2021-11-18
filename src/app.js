@@ -6,6 +6,7 @@ import { favouriteFoodData } from "./Data/FavouriteFood";
 import { updateUserData, displayData } from "./Home_Page_Func/HomeFunctions";
 import { updateModalFood } from "./Home_Page_Func/HomeFunctions";
 import { createMainChart } from "./Charts/MainChart";
+import { displayFoodDiary } from "./FoodDiary_Page_Func/FoodDiaryFunc";
 export const createDatabase = async () => {
   try {
     const db = await openDB("HCI_Database", 1, {
@@ -65,7 +66,7 @@ export const createDatabase = async () => {
           });
         }
 
-        // Create a schema for Days count of protein
+        // Create a schema for Days count of macronutrients
         if (!db.objectStoreNames.contains("DayCount")) {
           const store = db.createObjectStore("DayCount", {
             keyPath: "date",
@@ -143,7 +144,7 @@ export const createDatabase = async () => {
         totalFat += data[3].Fat * getQuantity;
         tx.done;
       }
-      await db.add("DayCount", {
+      await db.put("DayCount", {
         date: date,
         Calories: totalCal,
         Protein: totalProtein,
@@ -156,10 +157,18 @@ export const createDatabase = async () => {
     // });
     // After the database is created display the user data
     // and add event handlers for updating the user data
-    const mainChart = await createMainChart(db);
-    displayData(db);
-    updateUserData(db);
-    updateModalFood(db, mainChart);
+
+    if ($("body").is("#Home-Page")) {
+      console.log("Inside home page");
+      const mainChart = await createMainChart(db);
+      displayData(db);
+      updateUserData(db);
+      updateModalFood(db, mainChart);
+    }
+
+    if ($("body").is("#FoodDiary-Page")) {
+      displayFoodDiary(db);
+    }
   } catch (error) {
     console.error(error);
   }
