@@ -55,16 +55,15 @@ Chart.register(
 
 export const createMainChart = async (db) => {
   // Get todays date
-  const d = new Date();
-  const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+  // const d = new Date();
+  const date = `1`;
 
   // Get the data from the indexedDB
   const dayCountTx = db.transaction("DayCount", "readonly");
   const dayCountStore = dayCountTx.objectStore("DayCount");
-
   const dayData = await dayCountStore.get(date);
   const chartData = [dayData.Protein, dayData.Carbohyrate, dayData.Fat];
-
+  dayCountTx.done;
   const labels = ["Protein", "Carbohydrate", "Fat"];
   const data = {
     labels: labels,

@@ -4,15 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Bootstrap -->
-    <!-- <link
-      rel="stylesheet"
-      href="../node_modules/bootstrap/dist/css/bootstrap.css"
-    />
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
-
-    <!-- Google fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,19 +19,10 @@
       rel="stylesheet"
     />
 
-    <!-- Custom CSS -->
-    <!-- <link rel="stylesheet" href="../dist/css/main.css" /> -->
-
-    <!-- Chartjs -->
-    <!-- <script src="./node_modules/chart.js/dist/chart.js"></script> -->
-
-    <!-- Jquery -->
-    <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> -->
-
-    <title>Food Diary</title>
+    <title>Search Food</title>
   </head>
-  <body id="FoodDiary-Page">
-    <!-- Navbar of the page -->
+  <body id="SearchFood-Page">
+    <!-- Navbar -->
     <nav class="custom-navbar light-theme">
       <div class="navbar-content">
         <div class="main-logo">
@@ -147,9 +130,9 @@
             </h3>
           </li>
           <li>
-            <a href="#">
-              <h3>Food Diary</h3>
-            </a>
+            <h3>
+              <a href="./food_diary.html"> Food Diary </a>
+            </h3>
           </li>
           <li><h3>Simulate</h3></li>
           <li><h3>Profile</h3></li>
@@ -157,126 +140,114 @@
       </div>
     </nav>
 
-    <!-- Main section of the page -->
+    <!-- Main body of the page -->
     <main>
-      <section class="food-diary">
-        <!-- Div for the title and date -->
-        <div class="food-diary-title">
-          <article class="title-info light-theme">
-            <h1 class="bold">Food Diary</h1>
-            <h3>03, November, 2021</h3>
-          </article>
-        </div>
+      <section class="search-food">
+        <div class="search-food-row row1">
+          <section class="search-food-col col1 search-bar light-theme">
+            <div class="search-bar-header">
+              <h2>Search Food for Breakfast</h2>
+            </div>
+            <div class="search-bar-main">
+              <!-- Add an input textbox and a search button -->
+              <section class="search-input-area">
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="example Chicken"
+                  aria-label="default input example"
+                  id="search-bar"
+                />
+                <button
+                  type="button"
+                  class="btn btn-primary light-theme-btn disabled"
+                  id="search-button"
+                >
+                  Search
+                </button>
+              </section>
 
-        <!-- The food timings -->
-        <div class="food-diary-timmings">
-          <article class="column-1 column light-theme" id="breakfast-column">
-            <h2>Breakfast</h2>
-            <section id="breakfast-table-status"></section>
-            <table class="table table-striped" id="breakfast-table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">
-                    <h3 class="bold">Calories (Cal)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Protein (g)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Carbohydrate (g)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Fat (g)</h3>
-                  </th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-            <button
-              class="btn btn-primary light-theme-btn"
-              data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title="Tooltip on top"
-            >
-              Search Food
-            </button>
-          </article>
-          <article class="column-2 column light-theme">
-            <h2>Lunch</h2>
-            <section id="lunch-table-status"></section>
-            <table class="table table-striped" id="lunch-table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">
-                    <h3 class="bold">Calories (Cal)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Protein (g)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Carbohydrate (g)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Fat (g)</h3>
-                  </th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-            <button class="btn btn-primary light-theme-btn">Search Food</button>
-          </article>
-          <article class="column-3 column light-theme">
-            <h2>Dinner</h2>
-            <section id="dinner-table-status"></section>
-            <table class="table table-striped" id="dinner-table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">
-                    <h3 class="bold">Calories (Cal)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Protein (g)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Carbohydrate (g)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Fat (g)</h3>
-                  </th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-            <button class="btn btn-primary light-theme-btn">Search Food</button>
-          </article>
-          <article class="column-4 column light-theme">
-            <h2>Snacks</h2>
-            <section id="snack-table-status"></section>
-            <table class="table table-striped" id="snack-table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">
-                    <h3 class="bold">Calories (Cal)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Protein (g)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Carbohydrate (g)</h3>
-                  </th>
-                  <th scope="col">
-                    <h3 class="bold">Fat (g)</h3>
-                  </th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-            <button class="btn btn-primary light-theme-btn">Search Food</button>
-          </article>
+              <section class="matching-food">
+                <h4 class="bold">Matching Food:</h4>
+                <div class="scrollable-list">
+                  <ul class="list-group" id="food-list"></ul>
+                </div>
+              </section>
+            </div>
+          </section>
+          <section class="search-food-col col2 food-info light-theme">
+            <div class="food-info-header">
+              <h2>Food Information</h2>
+            </div>
+            <div class="food-info-main">
+              <article
+                class="input-section food-info-main-col food-info-main-col-1"
+              >
+                <h3 class="bold" style="text-transform: capitalize">
+                  <span id="food-name"></span>
+                </h3>
+                <section class="food-input-row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label"
+                    ><p>Quantity:</p></label
+                  >
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-primary light-theme-btn disabled"
+                      id="decrease-btn"
+                    >
+                      -
+                    </button>
+                    <input
+                      class="form-control disabled"
+                      type="number"
+                      placeholder="0"
+                      aria-label="default input example"
+                      value="1"
+                      disabled
+                      id="quantity-value"
+                      min="0.5"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-primary light-theme-btn disabled"
+                      id="increase-btn"
+                    >
+                      +
+                    </button>
+                  </div>
+                </section>
+
+                <section class="food-input-row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label"
+                    ><p>Serving:</p></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    disabled
+                  ></select>
+                </section>
+              </article>
+              <article
+                class="chart-section food-info-main-col food-info-main-col-2"
+              >
+                <canvas id="food-info-chart" style="display: none"></canvas>
+              </article>
+            </div>
+          </section>
+        </div>
+        <div class="search-food-row row2">
+          <section class="search-food-col col1 favourite-section light-theme">
+            <div class="favourite-section-header">
+              <h2>Favourite Food</h2>
+            </div>
+          </section>
+          <section class="search-food-col col2 recent-section light-theme">
+            <div class="recent-section-header">
+              <h2>Recently Added Food</h2>
+            </div>
+          </section>
         </div>
       </section>
     </main>

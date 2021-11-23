@@ -1,0 +1,111 @@
+.search-food {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-top: 12rem;
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 4.25rem;
+  }
+
+  &-col {
+    width: 47%;
+    height: 400px;
+    padding: 2rem;
+  }
+
+  .search-bar {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+
+    border-radius: 8px;
+
+    &-header {
+      margin-bottom: 1.5rem;
+    }
+
+    &-main {
+      .search-input-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+      }
+
+      .scrollable-list {
+        height: 150px;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  .food-info {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+
+    border-radius: 8px;
+
+    &-header {
+      margin-bottom: 1.5rem;
+    }
+
+    &-main {
+      &-col-1 {
+        width: 47%;
+      }
+      &-col-2 {
+        width: 40%;
+      }
+      &-col {
+        height: 225px;
+
+        .food-input-row {
+          margin-top: 0.5rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          input {
+            width: 55px;
+            margin: 0 0.25rem;
+          }
+          div {
+            button {
+              width: 50px;
+            }
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+
+          select {
+            width: 163px;
+          }
+
+          &:not(:last-child) {
+            margin-top: 2.25rem;
+          }
+        }
+      }
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .favourite-section {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+
+    border-radius: 8px;
+  }
+
+  .recent-section {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+
+    border-radius: 8px;
+  }
+}

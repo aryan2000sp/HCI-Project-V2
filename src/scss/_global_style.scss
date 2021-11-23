@@ -36,9 +36,26 @@
   color: #242d52;
 }
 
+.dark-theme-input {
+  // background-color: rgba(36, 45, 8, 0.3) !important;
+  background-color: #000;
+
+  &:focus {
+    background-color: #000;
+    color: #fafafa;
+  }
+}
+
+.dark-theme-list {
+  li {
+    background-color: #000;
+    color: #fafafa;
+  }
+}
+
 a {
   text-decoration: none;
-  // color: #242d52;
+  color: #242d52 !important;
 }
 
 h1 {
@@ -132,6 +149,30 @@ ul {
   letter-spacing: 2px;
 }
 
+.small-para {
+  font-family: Spartan, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: -0.225px;
+  margin-bottom: 0;
+}
+
+.selected-item {
+  background-color: rgba(235, 160, 109, 0.4);
+}
+
+.custom-list-item {
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(235, 160, 109, 0.4);
+  }
+}
+
+body {
+  background-color: #6db8eb;
+}
+
 main {
   height: auto;
   padding: 0rem 2rem;
@@ -142,4 +183,31 @@ main {
   main {
     height: 100vh;
   }
+}
+
+// Styling for the scroll bar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// For hiding the up and down arrows for the number input
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

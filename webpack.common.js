@@ -31,13 +31,6 @@ module.exports = {
       },
       {
         test: /\.(svg|png|jpeg|gif)$/,
-        // use: {
-        //   loader: "file-loader",
-        //   options: {
-        //     name: "[name].[hash].[ext]",
-        //     outputPath: "imgs",
-        //   },
-        // },
         type: "asset/resource",
       },
     ],
@@ -56,9 +49,16 @@ module.exports = {
       template: "./src/pages/home.html",
       chunks: ["app"],
     }),
+
     new HtmlWebpackPlugin({
       filename: "food_diary.html",
       template: "./src/pages/food_diary.html",
+      chunks: ["app"],
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: "search_food.html",
+      template: "./src/pages/search_food.html",
       chunks: ["app"],
     }),
   ],

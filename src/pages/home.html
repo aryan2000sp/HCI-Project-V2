@@ -130,9 +130,9 @@
             </h3>
           </li>
           <li>
-            <a href="./food_diary.html">
-              <h3>Food Diary</h3>
-            </a>
+            <h3>
+              <a href="./food_diary.html"> Food Diary </a>
+            </h3>
           </li>
           <li><h3>Simulate</h3></li>
           <li><h3>Profile</h3></li>
@@ -232,86 +232,582 @@
 
         <!-- Quick Tools Division -->
         <div class="quick-tools">
-          <section class="breakfast quick-tools-col light-theme">
-            <h3>Breakfast</h3>
-            <h4 class="semi-bold">
-              TOTAL CALORIE = <span name="breakfast"></span> cal
-            </h4>
+          <!-- Carousel for the breakfast -->
+          <div
+            id="breakfast-carousel"
+            class="carousel carousel-dark slide carousel-fade"
+            data-bs-ride="carousel"
+            data-bs-interval="false"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#breakfast-carousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#breakfast-carousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#breakfast-carousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <!-- First Carousel item -->
+              <div class="carousel-item active">
+                <section class="breakfast quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Breakfast</h3>
+                    <h4 class="semi-bold">
+                      TOTAL CALORIE = <span name="breakfast"></span> cal
+                    </h4>
+                  </div>
+                  <div class="quick-tools-col-footer">
+                    <button
+                      type="button"
+                      class="
+                        btn btn-primary
+                        quick-add-btn
+                        light-theme-btn
+                        quick-add-food
+                      "
+                      data-bs-toggle="modal"
+                      data-bs-target="#quick-food-modal"
+                      name="breakfast"
+                    >
+                      Quick Add
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Second Carousel item -->
+              <div class="carousel-item">
+                <section class="breakfast quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Breakfast Items</h3>
+                    <h4
+                      class="semi-bold"
+                      id="breakfast-table-status"
+                      style="display: none"
+                    >
+                      NO DATA
+                    </h4>
+                    <div class="table-responsive" id="breakfast-item-status">
+                      <table
+                        class="table table-sm table-striped"
+                        id="breakfast-table-items"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Cal</th>
+                            <th scope="col">Qauntity</th>
+                            <th scope="col">Serving</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="quick-tools-col-footer">
+                    <a href="./food_diary.html#breakfast-column">
+                      <button class="btn btn-primary light-theme-btn">
+                        Food Diary
+                      </button>
+                    </a>
+                    <a href="./search_food.html">
+                      <button class="btn btn-primary light-theme-btn">
+                        Search Food
+                      </button>
+                    </a>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Third Carousel item -->
+              <div class="carousel-item">
+                <section class="breakfast quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Breakfast Macro</h3>
+                    <h4
+                      class="semi-bold"
+                      style="display: none"
+                      id="breakfast-chart-status"
+                    >
+                      NO DATA
+                    </h4>
+                  </div>
+                  <canvas id="breakfast-macros"></canvas>
+                </section>
+              </div>
+            </div>
             <button
+              class="carousel-control-prev"
               type="button"
-              class="
-                btn btn-primary
-                quick-add-btn
-                light-theme-btn
-                quick-add-food
-              "
-              data-bs-toggle="modal"
-              data-bs-target="#quick-food-modal"
-              name="breakfast"
+              data-bs-target="#breakfast-carousel"
+              data-bs-slide="prev"
             >
-              Quick Add
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
             </button>
-          </section>
-          <section class="lunch quick-tools-col light-theme">
-            <h3>Lunch</h3>
-            <h4 class="semi-bold">
-              TOTAL CALORIE = <span name="lunch"></span> cal
-            </h4>
             <button
+              class="carousel-control-next"
               type="button"
-              class="
-                btn btn-primary
-                quick-add-btn
-                light-theme-btn
-                quick-add-food
-              "
-              data-bs-toggle="modal"
-              data-bs-target="#quick-food-modal"
-              name="lunch"
+              data-bs-target="#breakfast-carousel"
+              data-bs-slide="next"
             >
-              Quick Add
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
             </button>
-          </section>
-          <section class="dinner quick-tools-col light-theme">
-            <h3>Dinner</h3>
-            <h4 class="semi-bold">
-              TOTAL CALORIE = <span name="dinner"></span> cal
-            </h4>
+          </div>
+
+          <!-- Carousel for the lunch -->
+          <div
+            id="lunch-carousel"
+            class="carousel carousel-dark slide carousel-fade"
+            data-bs-ride="carousel"
+            data-bs-interval="false"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#lunch-carousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#lunch-carousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#lunch-carousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <!-- First Carousel Item -->
+              <div class="carousel-item active">
+                <section class="lunch quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Lunch</h3>
+                    <h4 class="semi-bold">
+                      TOTAL CALORIE = <span name="lunch"></span> cal
+                    </h4>
+                  </div>
+                  <div class="quick-tools-col-footer">
+                    <button
+                      type="button"
+                      class="
+                        btn btn-primary
+                        quick-add-btn
+                        light-theme-btn
+                        quick-add-food
+                      "
+                      data-bs-toggle="modal"
+                      data-bs-target="#quick-food-modal"
+                      name="lunch"
+                    >
+                      Quick Add
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Second Carousel Item -->
+              <div class="carousel-item">
+                <section class="lunch quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Lunch Items</h3>
+                    <h4
+                      class="semi-bold"
+                      id="lunch-table-status"
+                      style="display: none"
+                    >
+                      NO DATA
+                    </h4>
+                    <div class="table-responsive" id="lunch-item-status">
+                      <table
+                        class="table table-sm table-striped"
+                        id="lunch-table-items"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Cal</th>
+                            <th scope="col">Qauntity</th>
+                            <th scope="col">Serving</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="quick-tools-col-footer">
+                    <a href="./food_diary.html#breakfast-column">
+                      <button class="btn btn-primary light-theme-btn">
+                        Food Diary
+                      </button>
+                    </a>
+                    <button class="btn btn-primary light-theme-btn">
+                      Search Food
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Third Carousel Item -->
+              <div class="carousel-item">
+                <section class="lunch quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Lunch Macro</h3>
+                    <h4
+                      class="semi-bold"
+                      style="display: none"
+                      id="lunch-chart-status"
+                    >
+                      NO DATA
+                    </h4>
+                  </div>
+                  <canvas id="lunch-macros"></canvas>
+                </section>
+              </div>
+            </div>
+
+            <!-- The prev and next buttons -->
             <button
+              class="carousel-control-prev"
               type="button"
-              class="
-                btn btn-primary
-                quick-add-btn
-                light-theme-btn
-                quick-add-food
-              "
-              data-bs-toggle="modal"
-              data-bs-target="#quick-food-modal"
-              name="dinner"
+              data-bs-target="#lunch-carousel"
+              data-bs-slide="prev"
             >
-              Quick Add
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
             </button>
-          </section>
-          <section class="snacks quick-tools-col light-theme">
-            <h3>Snacks</h3>
-            <h4 class="semi-bold">
-              TOTAL CALORIE = <span name="snack"></span> cal
-            </h4>
             <button
+              class="carousel-control-next"
               type="button"
-              class="
-                btn btn-primary
-                quick-add-btn
-                light-theme-btn
-                quick-add-food
-              "
-              data-bs-toggle="modal"
-              data-bs-target="#quick-food-modal"
-              name="snack"
+              data-bs-target="#lunch-carousel"
+              data-bs-slide="next"
             >
-              Quick Add
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
             </button>
-          </section>
+          </div>
+
+          <!-- Carousel for the Dinner -->
+          <div
+            id="dinner-carousel"
+            class="carousel carousel-dark slide carousel-fade"
+            data-bs-ride="carousel"
+            data-bs-interval="false"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#dinner-carousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#dinner-carousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#dinner-carousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <!-- First Carousel -->
+              <div class="carousel-item active">
+                <!-- First item -->
+                <section class="dinner quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Dinner</h3>
+                    <h4 class="semi-bold">
+                      TOTAL CALORIE = <span name="dinner"></span> cal
+                    </h4>
+                  </div>
+                  <div class="quick-tools-col-footer">
+                    <button
+                      type="button"
+                      class="
+                        btn btn-primary
+                        quick-add-btn
+                        light-theme-btn
+                        quick-add-food
+                      "
+                      data-bs-toggle="modal"
+                      data-bs-target="#quick-food-modal"
+                      name="dinner"
+                    >
+                      Quick Add
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Second Carousel -->
+              <div class="carousel-item">
+                <section class="dinner quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Dinner Items</h3>
+                    <h4
+                      class="semi-bold"
+                      id="dinner-table-status"
+                      style="display: none"
+                    >
+                      NO DATA
+                    </h4>
+                    <div class="table-responsive" id="dinner-item-status">
+                      <table
+                        class="table table-sm table-striped"
+                        id="dinner-table-items"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Cal</th>
+                            <th scope="col">Qauntity</th>
+                            <th scope="col">Serving</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="quick-tools-col-footer">
+                    <a href="./food_diary.html#breakfast-column">
+                      <button class="btn btn-primary light-theme-btn">
+                        Food Diary
+                      </button>
+                    </a>
+                    <button class="btn btn-primary light-theme-btn">
+                      Search Food
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Third Carousel -->
+              <div class="carousel-item">
+                <section class="dinner quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Dinner Macro</h3>
+                    <h4
+                      class="semi-bold"
+                      style="display: none"
+                      id="dinner-chart-status"
+                    >
+                      NO DATA
+                    </h4>
+                  </div>
+                  <canvas id="dinner-macros"></canvas>
+                </section>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#dinner-carousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#dinner-carousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <!-- Carousel for the Snack -->
+          <div
+            id="snack-carousel"
+            class="carousel carousel-dark slide carousel-fade"
+            data-bs-ride="carousel"
+            data-bs-interval="false"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#snack-carousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#snack-carousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#snack-carousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <!-- First Carousel -->
+              <div class="carousel-item active">
+                <section class="snacks quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Snacks</h3>
+                    <h4 class="semi-bold">
+                      TOTAL CALORIE = <span name="snack"></span> cal
+                    </h4>
+                  </div>
+                  <div class="quick-tools-col-footer">
+                    <button
+                      type="button"
+                      class="
+                        btn btn-primary
+                        quick-add-btn
+                        light-theme-btn
+                        quick-add-food
+                      "
+                      data-bs-toggle="modal"
+                      data-bs-target="#quick-food-modal"
+                      name="snack"
+                    >
+                      Quick Add
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Second Carousel -->
+              <div class="carousel-item">
+                <section class="snack quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Snack Items</h3>
+                    <h4
+                      class="semi-bold"
+                      id="snack-table-status"
+                      style="display: none"
+                    >
+                      NO DATA
+                    </h4>
+                    <div class="table-responsive" id="snack-item-status">
+                      <table
+                        class="table table-sm table-striped"
+                        id="snack-table-items"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Cal</th>
+                            <th scope="col">Qauntity</th>
+                            <th scope="col">Serving</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="quick-tools-col-footer">
+                    <a href="./food_diary.html#breakfast-column">
+                      <button class="btn btn-primary light-theme-btn">
+                        Food Diary
+                      </button>
+                    </a>
+                    <button class="btn btn-primary light-theme-btn">
+                      Search Food
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Third Carousel -->
+              <div class="carousel-item">
+                <section class="snack quick-tools-col light-theme">
+                  <div class="quick-tools-col-header">
+                    <h3>Snack Macro</h3>
+                    <h4
+                      class="semi-bold"
+                      style="display: none"
+                      id="snack-chart-status"
+                    >
+                      NO DATA
+                    </h4>
+                  </div>
+                  <canvas id="snack-macros"></canvas>
+                </section>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#snack-carousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#snack-carousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
       </section>
     </main>

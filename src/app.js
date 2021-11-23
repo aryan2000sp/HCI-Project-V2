@@ -7,6 +7,7 @@ import { updateUserData, displayData } from "./Home_Page_Func/HomeFunctions";
 import { updateModalFood } from "./Home_Page_Func/HomeFunctions";
 import { createMainChart } from "./Charts/MainChart";
 import { displayFoodDiary } from "./FoodDiary_Page_Func/FoodDiaryFunc";
+import { upadateSearchPage } from "./SearchFood_Page_Function/SearchFoodFunc";
 export const createDatabase = async () => {
   try {
     const db = await openDB("HCI_Database", 1, {
@@ -117,15 +118,19 @@ export const createDatabase = async () => {
       .transaction("BreakFast", "readonly")
       .objectStore("BreakFast");
     const breakfastNumber = await breakfastStore.count();
+    // const d = new Date();
+    const date = `1`;
+    let totalCal = 0;
+    let totalProtein = 0;
+    let totalCarb = 0;
+    let totalFat = 0;
     if (breakfastNumber === 0) {
       // Get the first two enteries in the food data
       const data = foodData.filter((singleData) => singleData.id <= 2);
-      let totalCal = 0;
-      let totalProtein = 0;
-      let totalCarb = 0;
-      let totalFat = 0;
-      const d = new Date();
-      const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+      // let totalCal = 0;
+      // let totalProtein = 0;
+      // let totalCarb = 0;
+      // let totalFat = 0;
       for (let i = 0; i <= 1; i++) {
         const tx = db.transaction("BreakFast", "readwrite");
         const breakfastStore = tx.objectStore("BreakFast");
@@ -168,6 +173,10 @@ export const createDatabase = async () => {
 
     if ($("body").is("#FoodDiary-Page")) {
       displayFoodDiary(db);
+    }
+
+    if ($("body").is("#SearchFood-Page")) {
+      upadateSearchPage(db);
     }
   } catch (error) {
     console.error(error);

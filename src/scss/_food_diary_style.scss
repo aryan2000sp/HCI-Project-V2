@@ -1,7 +1,7 @@
 .food-diary {
   margin: 0 auto;
   max-width: 1440px;
-  padding-top: 10rem;
+  padding-top: 12rem;
 
   &-title {
     display: flex;
@@ -30,8 +30,12 @@
         margin-bottom: 2rem;
       }
 
+      h2 {
+        margin-bottom: 2rem;
+      }
+
       button {
-        margin-bottom: 1rem;
+        margin-top: 1rem;
       }
     }
   }
@@ -39,9 +43,16 @@
   .food-description {
     display: flex;
     flex-direction: row;
-
+    align-items: flex-start;
     .btn-section {
       margin-right: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      svg {
+        margin-bottom: 2rem;
+        cursor: pointer;
+      }
     }
   }
 }

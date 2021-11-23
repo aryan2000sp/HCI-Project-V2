@@ -1,5 +1,19 @@
 import { Modal } from "bootstrap";
 import { Toast } from "bootstrap";
+// import { Chart } from "chart.js";
+// import { config } from "../Charts/CarouselChart";
+
+// const breakfastChart = createChart("breakfast-macros");
+// const lunchChart = createChart("lunch-macros");
+// const dinnerChart = createChart("dinner-macros");
+// const snackChart = createChart("snack-macros");
+import {
+  createChart,
+  updateChartData,
+  updateChartLabels,
+  chartExist,
+  destroyChart,
+} from "../Charts/CarouselChart";
 export const displayData = async (db) => {
   try {
     const store = db.transaction("User", "readonly").objectStore("User");
@@ -19,6 +33,56 @@ export const displayData = async (db) => {
 
     // Create a method that will display the total calories for the category
     displayFoodCal(db);
+
+    // Create a method that will display all the for the food in Carousel
+    const breakfastData = await db.getAll("BreakFast");
+    const lunchData = await db.getAll("Lunch");
+    const dinnerData = await db.getAll("Dinner");
+    const snackData = await db.getAll("Snack");
+
+    if (breakfastData.length > 0) {
+      displayFoodItems(breakfastData, "breakfast-table-items");
+      displayMacroChart(breakfastData, "breakfast-macros");
+      $("#breakfast-chart-status").css("display", "none");
+      $("#breakfast-table-status").css("display", "none");
+    } else {
+      $("#breakfast-chart-status").css("display", "block");
+      $("#breakfast-table-status").css("display", "block");
+      $("#breakfast-table-items").css("display", "none");
+    }
+
+    if (lunchData.length > 0) {
+      displayFoodItems(lunchData, "lunch-table-items");
+      displayMacroChart(lunchData, "lunch-macros");
+      $("#lunch-chart-status").css("display", "none");
+      $("#lunch-table-status").css("display", "none");
+    } else {
+      $("#lunch-chart-status").css("display", "block");
+      $("#lunch-table-status").css("display", "block");
+      $("#lunch-table-items").css("display", "none");
+    }
+
+    if (dinnerData.length > 0) {
+      displayFoodItems(dinnerData, "dinner-table-items");
+      displayMacroChart(dinnerData, "dinner-macros");
+      $("#dinner-chart-status").css("display", "none");
+      $("#dinner-table-status").css("display", "none");
+    } else {
+      $("#dinner-chart-status").css("display", "block");
+      $("#dinner-table-status").css("display", "block");
+      $("#dinner-table-items").css("display", "none");
+    }
+
+    if (snackData.length > 0) {
+      displayFoodItems(snackData, "snack-table-items");
+      displayMacroChart(snackData, "snack-macros");
+      $("#snack-chart-status").css("display", "none");
+      $("#snack-table-status").css("display", "none");
+    } else {
+      $("#snack-chart-status").css("display", "block");
+      $("#snack-table-status").css("display", "block");
+      $("#snack-table-items").css("display", "none");
+    }
   } catch (error) {
     console.error(error);
   }
@@ -177,7 +241,7 @@ const displayFoodCal = async (db) => {
 
     // Display the data for the calorie count
     const d = new Date();
-    const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+    const date = `1`;
     const { Calories } = await db.get("DayCount", date);
     $("#calorie-count").text(`${Calories} cal`);
     if (Calories < 2000) {
@@ -209,8 +273,7 @@ export const updateModalFood = (db, mainChart) => {
 
   $("#save-food-data").on("click", async () => {
     try {
-      const d = new Date();
-      const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+      const date = `1`;
       let totalCal = 0;
       let totalProtein = 0;
       let totalCarb = 0;
@@ -245,13 +308,46 @@ export const updateModalFood = (db, mainChart) => {
           }
           const breakfastData = await breakfast.getAll();
           let totalCal = 0;
+          let totalProtein = 0;
+          let totalCarb = 0;
+          let totalFat = 0;
           breakfastData.map((singleData) => {
             const { quantity, servingSelected } = singleData;
             const { data } = servingSelected;
             totalCal += data[0].Calories * quantity;
+            totalProtein += data[1].Protein * quantity;
+            totalCarb += data[2].Carbohyrate * quantity;
+            totalFat += data[3].Fat * quantity;
           });
+
+          const newChartLabels = [
+            `Protein (${totalProtein} g)`,
+            `Carb (${totalCarb} g)`,
+            `Fat (${totalFat})`,
+          ];
+          if (!chartExist("breakfast-macros")) {
+            createChart(
+              "breakfast-macros",
+              [totalProtein, totalCarb, totalFat],
+              newChartLabels
+            );
+          } else {
+            updateChartData("breakfast-macros", [
+              totalProtein,
+              totalCarb,
+              totalFat,
+            ]);
+            updateChartLabels("breakfast-macros", newChartLabels);
+          }
+
+          $("#breakfast-chart-status").css("display", "none");
+          $("#breakfast-table-status").css("display", "none");
+
           $("span[name=breakfast]").text(`${totalCal}`);
           $("#food-feedback-message").text("Items Added to Breakfast");
+          addDataToTable(foodData, "breakfast-table-items");
+          $("#breakfast-table-items").css("display", "table");
+
           tx.done;
         }
         if (category === "lunch") {
@@ -267,13 +363,46 @@ export const updateModalFood = (db, mainChart) => {
           }
           const lunchData = await lunch.getAll();
           let totalCal = 0;
+          let totalProtein = 0;
+          let totalCarb = 0;
+          let totalFat = 0;
           lunchData.map((singleData) => {
             const { quantity, servingSelected } = singleData;
             const { data } = servingSelected;
             totalCal += data[0].Calories * quantity;
+            totalProtein += data[1].Protein * quantity;
+            totalCarb += data[2].Carbohyrate * quantity;
+            totalFat += data[3].Fat * quantity;
           });
+
+          const newChartLabels = [
+            `Protein (${totalProtein} g)`,
+            `Carb (${totalCarb} g)`,
+            `Fat (${totalFat})`,
+          ];
+
+          if (!chartExist("lunch-macros")) {
+            createChart(
+              "lunch-macros",
+              [totalProtein, totalCarb, totalFat],
+              newChartLabels
+            );
+          } else {
+            updateChartData("lunch-macros", [
+              totalProtein,
+              totalCarb,
+              totalFat,
+            ]);
+            updateChartLabels("lunch-macros", newChartLabels);
+          }
+
+          $("#lunch-chart-status").css("display", "none");
+          $("#lunch-table-status").css("display", "none");
+
           $("span[name=lunch]").text(`${totalCal}`);
           $("#food-feedback-message").text("Items Added to Lunch");
+          addDataToTable(foodData, "lunch-table-items");
+          $("#lunch-table-items").css("display", "table");
           tx.done;
         }
         if (category === "dinner") {
@@ -289,13 +418,47 @@ export const updateModalFood = (db, mainChart) => {
           }
           const dinnerData = await dinner.getAll();
           let totalCal = 0;
+          let totalProtein = 0;
+          let totalCarb = 0;
+          let totalFat = 0;
+
           dinnerData.map((singleData) => {
             const { quantity, servingSelected } = singleData;
             const { data } = servingSelected;
             totalCal += data[0].Calories * quantity;
+            totalProtein += data[1].Protein * quantity;
+            totalCarb += data[2].Carbohyrate * quantity;
+            totalFat += data[3].Fat * quantity;
           });
+
+          const newChartLabels = [
+            `Protein (${totalProtein} g)`,
+            `Carb (${totalCarb} g)`,
+            `Fat (${totalFat})`,
+          ];
+
+          if (!chartExist("dinner-macros")) {
+            createChart(
+              "dinner-macros",
+              [totalProtein, totalCarb, totalFat],
+              newChartLabels
+            );
+          } else {
+            updateChartData("dinner-macros", [
+              totalProtein,
+              totalCarb,
+              totalFat,
+            ]);
+            updateChartLabels("dinner-macros", newChartLabels);
+          }
+
+          $("#dinner-chart-status").css("display", "none");
+          $("#dinner-table-status").css("display", "none");
+
           $("span[name=dinner]").text(`${totalCal}`);
           $("#food-feedback-message").text("Items Added to Dinner");
+          addDataToTable(foodData, "dinner-table-items");
+          $("#dinner-table-items").css("display", "table");
           tx.done;
         }
         if (category === "snack") {
@@ -311,13 +474,46 @@ export const updateModalFood = (db, mainChart) => {
           }
           const snackData = await snack.getAll();
           let totalCal = 0;
+          let totalProtein = 0;
+          let totalCarb = 0;
+          let totalFat = 0;
           snackData.map((singleData) => {
             const { quantity, servingSelected } = singleData;
             const { data } = servingSelected;
             totalCal += data[0].Calories * quantity;
+            totalProtein += data[1].Protein * quantity;
+            totalCarb += data[2].Carbohyrate * quantity;
+            totalFat += data[3].Fat * quantity;
           });
+
+          const newChartLabels = [
+            `Protein (${totalProtein} g)`,
+            `Carb (${totalCarb} g)`,
+            `Fat (${totalFat})`,
+          ];
+
+          if (!chartExist("snack-macros")) {
+            createChart(
+              "snack-macros",
+              [totalProtein, totalCarb, totalFat],
+              newChartLabels
+            );
+          } else {
+            updateChartData("snack-macros", [
+              totalProtein,
+              totalCarb,
+              totalFat,
+            ]);
+            updateChartLabels("snack-macros", newChartLabels);
+          }
+
+          $("#snack-chart-status").css("display", "none");
+          $("#snack-table-status").css("display", "none");
+
           $("span[name=snack]").text(`${totalCal}`);
           $("#food-feedback-message").text("Items Added to Snack");
+          addDataToTable(foodData, "snack-table-items");
+          $("#snack-table-items").css("display", "table");
           tx.done;
         }
       }
@@ -377,4 +573,102 @@ export const updateModalFood = (db, mainChart) => {
       console.error(error);
     }
   });
+};
+
+const displayFoodItems = (data, tableName) => {
+  data.map((singleData) => {
+    const { id, name, servingSelected, quantity } = singleData;
+    const { size, data } = servingSelected;
+
+    if (!$(`#${tableName} > tbody > #table-row-${id}`).length) {
+      $(`#${tableName} > tbody`).append(`
+      <tr id=table-row-${id}>
+        <td style="text-transform:capitalize;">${name}</td>
+        <td>${data[0].Calories * quantity}</td>
+        <td>${quantity}</td>
+        <td>${size}</td>
+      </tr>
+    `);
+    } else {
+      const calorie = parseInt(
+        $(`#${tableName} > tbody > #table-row-${id} > td:nth-child(2)`).text()
+      );
+      const currentQuantity = parseInt(
+        $(`#${tableName} > tbody > #table-row-${id} > td:nth-child(3)`).text()
+      );
+
+      $(`#${tableName} > tbody > #table-row-${id} > td:nth-child(2)`).text(
+        `${calorie + data[0].Calories * quantity}`
+      );
+      $(`#${tableName} > tbody > #table-row-${id} > td:nth-child(3)`).text(
+        `${currentQuantity + quantity}`
+      );
+    }
+  });
+};
+
+const addDataToTable = (foodData, tableName) => {
+  const { id, name, servingSelected, quantity } = foodData;
+  const { size, data } = servingSelected;
+  if (!$(`#${tableName} > tbody > #table-row-${id}`).length) {
+    $(`#${tableName} > tbody`).append(`
+    <tr>
+      <td style="text-transform:capitalize;">${name}</td>
+      <td>${data[0].Calories * quantity}</td>
+      <td>${quantity}</td>
+      <td>${size}</td>
+    </tr>
+  `);
+  } else {
+    const calorie = parseInt(
+      $(`#${tableName} > tbody > #table-row-${id} > td:nth-child(2)`).text()
+    );
+    const currentQuantity = parseInt(
+      $(`#${tableName} > tbody > #table-row-${id} > td:nth-child(3)`).text()
+    );
+
+    $(`#${tableName} > tbody > #table-row-${id} > td:nth-child(2)`).text(
+      `${calorie + data[0].Calories * quantity}`
+    );
+    $(`#${tableName} > tbody > #table-row-${id} > td:nth-child(3)`).text(
+      `${currentQuantity + quantity}`
+    );
+  }
+};
+
+// Create a method that will display the chart data for the macros
+const displayMacroChart = (foodData, chartID) => {
+  let totalProtein = 0;
+  let totalCarb = 0;
+  let totalFat = 0;
+
+  foodData.map((singleData) => {
+    const { servingSelected, quantity } = singleData;
+    const { data } = servingSelected;
+    totalProtein += data[1].Protein * quantity;
+    totalCarb += data[2].Carbohyrate * quantity;
+    totalFat += data[3].Fat * quantity;
+  });
+
+  const chartData = [totalProtein, totalCarb, totalFat];
+  // console.log(chartData);
+  // Create a chart
+  // let foodCarouselChart = new Chart($(`#${chartID}`), config);
+  // foodCarouselChart.data.datasets[0].data = chartData;
+  // foodCarouselChart.update();
+
+  createChart(chartID, chartData, [
+    `Protein (${totalProtein} g)`,
+    `Carb (${totalCarb} g)`,
+    `Fat (${totalFat} g)`,
+  ]);
+  // updateChartData(chartID, chartData);
+  // updateChartLabels(chartID, [
+  //   `Protein (${totalProtein})`,
+  //   `Carb (${totalCarb})`,
+  //   `Fat (${totalFat})`,
+  // ]);
+  // breakfastChart.data.datasets[0].data = chartData;
+
+  // chart.destroy();
 };
