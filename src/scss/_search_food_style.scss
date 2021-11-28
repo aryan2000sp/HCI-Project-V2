@@ -7,12 +7,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 4.25rem;
+    margin-bottom: 2.8rem;
   }
 
   &-col {
     width: 47%;
-    height: 400px;
+    height: 475px;
     padding: 2rem;
   }
 
@@ -23,7 +23,7 @@
     border-radius: 8px;
 
     &-header {
-      margin-bottom: 1.5rem;
+      margin-bottom: 4rem;
     }
 
     &-main {
@@ -31,7 +31,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
       }
 
       .scrollable-list {
@@ -48,7 +48,7 @@
     border-radius: 8px;
 
     &-header {
-      margin-bottom: 1.5rem;
+      margin-bottom: 4rem;
     }
 
     &-main {
@@ -93,6 +93,14 @@
       flex-direction: row;
       justify-content: space-between;
     }
+
+    &-footer {
+      display: flex;
+      flex-direction: row;
+      > button {
+        margin-right: 0.25rem;
+      }
+    }
   }
 
   .favourite-section {
@@ -100,6 +108,9 @@
       0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
 
     border-radius: 8px;
+    &-header {
+      margin-bottom: 1.5rem;
+    }
   }
 
   .recent-section {
@@ -107,5 +118,48 @@
       0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
 
     border-radius: 8px;
+  }
+}
+
+.custom-favourite-carousel {
+  // height: 225px;
+}
+
+.custom-carousel-inner {
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+}
+
+.custom-carousel-item {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+}
+
+.favourite-food-col {
+  width: 45%;
+  h3 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.favourite-food-input {
+  display: flex;
+  flex-direction: row;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-right: 0.5rem;
+  }
+  > div {
+    display: flex;
+    flex-direction: row;
+  }
+  input {
+    margin: 0 0.25rem;
   }
 }

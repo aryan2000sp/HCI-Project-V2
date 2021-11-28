@@ -34,7 +34,7 @@
         margin-bottom: 2rem;
       }
 
-      button {
+      > button {
         margin-top: 1rem;
       }
     }
@@ -54,5 +54,47 @@
         cursor: pointer;
       }
     }
+
+    .food-info {
+      > h4 {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
+
+.quantity-input-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  > div {
+    display: flex;
+    flex-direction: row;
+    input {
+      width: 55px;
+      margin: 0 0.5rem;
+    }
+    button {
+      width: 40px;
+    }
+  }
+  > p {
+    margin-right: 1rem;
+  }
+}
+
+.serving-input-section {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  > p {
+    margin-right: 1.5rem;
+  }
+  > select {
+    width: 151px;
   }
 }

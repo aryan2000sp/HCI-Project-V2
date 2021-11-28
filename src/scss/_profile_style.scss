@@ -1,0 +1,85 @@
+.profile {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-top: 12rem;
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  &-col {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+
+    border-radius: 8px;
+
+    &:not(:last-child) {
+      margin-right: 7rem;
+    }
+  }
+
+  &-col1 {
+    width: 25%;
+  }
+
+  &-col2 {
+    width: 50%;
+    padding: 2.25rem;
+  }
+}
+
+.custom-list-group-item {
+  padding: 4.25rem 1.5rem;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(235, 160, 109, 0.4);
+  }
+}
+
+.custom-list-group {
+  border-radius: 8px;
+}
+
+.profile-change-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .btn-section {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4rem;
+    > button:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.public-profile-settings-footer {
+  margin-top: 4.25rem;
+}
+
+.account-settings {
+  &-header {
+    margin-bottom: 3.5rem;
+  }
+
+  &-footer {
+    margin-top: 4.25rem;
+  }
+}
+
+.fitness-profile-settings {
+  &-header {
+    margin-bottom: 3.5rem;
+  }
+
+  &-footer {
+    margin-top: 4.25rem;
+  }
+}

@@ -83,6 +83,11 @@ export const displayData = async (db) => {
       $("#snack-table-status").css("display", "block");
       $("#snack-table-items").css("display", "none");
     }
+
+    // Add event to search-page-link dropdowns
+    // searchPageRouting();
+
+    searchButtonRouting();
   } catch (error) {
     console.error(error);
   }
@@ -671,4 +676,35 @@ const displayMacroChart = (foodData, chartID) => {
   // breakfastChart.data.datasets[0].data = chartData;
 
   // chart.destroy();
+};
+
+// const searchPageRouting = () => {
+//   $(".search-page-link").on("click", function () {
+//     if ($(this).attr("id") === "breakfast-search") {
+//       localStorage.setItem("page", "breakfast");
+//     } else if ($(this).attr("id") === "lunch-search") {
+//       localStorage.setItem("page", "lunch");
+//     } else if ($(this).attr("id") === "dinner-search") {
+//       localStorage.setItem("page", "dinner");
+//     } else if ($(this).attr("id") === "snack-search") {
+//       localStorage.setItem("page", "snack");
+//     }
+//   });
+// };
+
+const searchButtonRouting = () => {
+  $(".search-food-button").on("click", function () {
+    const id = $(this).attr("id");
+    console.log(id);
+
+    if (id === "search-breakfast-button") {
+      localStorage.setItem("page", "breakfast");
+    } else if (id === "search-lunch-button") {
+      localStorage.setItem("page", "lunch");
+    } else if (id === "search-dinner-button") {
+      localStorage.setItem("page", "dinner");
+    } else if (id === "search-snack-button") {
+      localStorage.setItem("page", "snack");
+    }
+  });
 };

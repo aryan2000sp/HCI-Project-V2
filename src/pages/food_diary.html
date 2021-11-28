@@ -147,12 +147,75 @@
             </h3>
           </li>
           <li>
-            <a href="#">
-              <h3>Food Diary</h3>
+            <h3
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Add Food
+            </h3>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <a
+                  class="dropdown-item search-page-link"
+                  href="./search_food.html"
+                  id="breakfast-search"
+                  >For Breakfast</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item search-page-link"
+                  href="./search_food.html"
+                  id="lunch-search"
+                  >For Lunch</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item search-page-link"
+                  href="./search_food.html"
+                  id="dinner-search"
+                  >For Dinner</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item search-page-link"
+                  href="./search_food.html"
+                  id="snack-search"
+                  >For Snack</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <h3>
+              <a href="./food_diary.html" style="text-decoration: underline">
+                Food Diary
+              </a>
+            </h3>
+          </li>
+
+          <li>
+            <h3>
+              <a href="./summary.html">Summary</a>
+            </h3>
+          </li>
+
+          <li>
+            <h3>
+              <a href="./profile.html"> Settings </a>
+            </h3>
+          </li>
+          <li>
+            <a href="./simulate.html">
+              <h3>Simulate</h3>
             </a>
           </li>
-          <li><h3>Simulate</h3></li>
-          <li><h3>Profile</h3></li>
         </ul>
       </div>
     </nav>
@@ -173,7 +236,7 @@
           <article class="column-1 column light-theme" id="breakfast-column">
             <h2>Breakfast</h2>
             <section id="breakfast-table-status"></section>
-            <table class="table table-striped" id="breakfast-table">
+            <table class="table" id="breakfast-table">
               <thead>
                 <tr>
                   <th scope="col"></th>
@@ -193,19 +256,20 @@
               </thead>
               <tbody></tbody>
             </table>
-            <button
-              class="btn btn-primary light-theme-btn"
-              data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title="Tooltip on top"
-            >
-              Search Food
-            </button>
+            <a href="./search_food.html">
+              <button
+                class="btn btn-primary light-theme-btn search-food-item"
+                title="Tooltip on top"
+                id="search-food-breakfast"
+              >
+                Add Food
+              </button>
+            </a>
           </article>
-          <article class="column-2 column light-theme">
+          <article class="column-2 column light-theme" id="lunch-column">
             <h2>Lunch</h2>
             <section id="lunch-table-status"></section>
-            <table class="table table-striped" id="lunch-table">
+            <table class="table" id="lunch-table">
               <thead>
                 <tr>
                   <th scope="col"></th>
@@ -225,12 +289,19 @@
               </thead>
               <tbody></tbody>
             </table>
-            <button class="btn btn-primary light-theme-btn">Search Food</button>
+            <a href="./search_food.html">
+              <button
+                class="btn btn-primary light-theme-btn search-food-item"
+                id="search-food-lunch"
+              >
+                Add Food
+              </button>
+            </a>
           </article>
-          <article class="column-3 column light-theme">
+          <article class="column-3 column light-theme" id="dinner-column">
             <h2>Dinner</h2>
             <section id="dinner-table-status"></section>
-            <table class="table table-striped" id="dinner-table">
+            <table class="table" id="dinner-table">
               <thead>
                 <tr>
                   <th scope="col"></th>
@@ -250,12 +321,19 @@
               </thead>
               <tbody></tbody>
             </table>
-            <button class="btn btn-primary light-theme-btn">Search Food</button>
+            <a href="./search_food.html">
+              <button
+                class="btn btn-primary light-theme-btn search-food-item"
+                id="search-food-dinner"
+              >
+                Add Food
+              </button>
+            </a>
           </article>
-          <article class="column-4 column light-theme">
+          <article class="column-4 column light-theme" id="snack-column">
             <h2>Snacks</h2>
             <section id="snack-table-status"></section>
-            <table class="table table-striped" id="snack-table">
+            <table class="table" id="snack-table">
               <thead>
                 <tr>
                   <th scope="col"></th>
@@ -275,7 +353,14 @@
               </thead>
               <tbody></tbody>
             </table>
-            <button class="btn btn-primary light-theme-btn">Search Food</button>
+            <a href="./search_food.html">
+              <button
+                class="btn btn-primary light-theme-btn search-food-item"
+                id="search-food-snack"
+              >
+                Add Food
+              </button>
+            </a>
           </article>
         </div>
       </section>

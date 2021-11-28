@@ -126,16 +126,79 @@
         <ul class="navbar-links">
           <li>
             <h3>
-              <a href="./index.html"> Home </a>
+              <a href="./index.html" style="text-decoration: underline">
+                Home
+              </a>
             </h3>
           </li>
+          <li>
+            <h3
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Add Food
+            </h3>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <a
+                  class="dropdown-item search-page-link"
+                  href="./search_food.html"
+                  id="breakfast-search"
+                  >For Breakfast</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item search-page-link"
+                  href="./search_food.html"
+                  id="lunch-search"
+                  >For Lunch</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item search-page-link"
+                  href="./search_food.html"
+                  id="dinner-search"
+                  >For Dinner</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item search-page-link"
+                  href="./search_food.html"
+                  id="snack-search"
+                  >For Snack</a
+                >
+              </li>
+            </ul>
+          </li>
+
           <li>
             <h3>
               <a href="./food_diary.html"> Food Diary </a>
             </h3>
           </li>
-          <li><h3>Simulate</h3></li>
-          <li><h3>Profile</h3></li>
+
+          <li>
+            <h3>
+              <a href="./summary.html">Summary</a>
+            </h3>
+          </li>
+
+          <li>
+            <h3>
+              <a href="./profile.html"> Settings </a>
+            </h3>
+          </li>
+          <li>
+            <a href="./simulate.html">
+              <h3>Simulate</h3>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -186,10 +249,11 @@
         <div class="info-section">
           <div class="info-section-col info-section-col-1 light-theme">
             <h1 class="info-section-col-1-title bold">Calories Count</h1>
+
             <div>
-              <h2 class="calorie-count">
+              <h3 class="calorie-count">
                 <span id="calorie-count"></span>/2000 cal
-              </h2>
+              </h3>
             </div>
             <section class="calorie-info">
               <div class="progress custom-progress" style="height: 40px">
@@ -202,32 +266,18 @@
                   id="progress-bar"
                 ></div>
               </div>
-
-              <!-- <div class="circular">
-                <div class="inner"></div>
-                <div class="outer"></div>
-                <div class="numb">0%</div>
-                <div class="circle">
-                  <div class="dot">
-                    <span></span>
-                  </div>
-                  <div class="bar left">
-                    <div class="progress"></div>
-                  </div>
-                  <div class="bar right">
-                    <div class="progress"></div>
-                  </div>
-                </div>
-              </div> -->
-              <!-- <h3 class="text-success percent-info">25%</h3> -->
             </section>
           </div>
           <div class="info-section-col info-section-col-2 light-theme">
-            <h1 class="bold">Macronutrients</h1>
+            <h1 class="bold" style="margin-bottom: 3.25rem">Macronutrients</h1>
             <div class="macro-nutrients-chart-wrapper">
               <canvas id="macro-nutrients-chart"></canvas>
             </div>
           </div>
+          <!-- <div class="info-section-col info-section-col-3 light-theme">
+            <h1 class="bold">Summary</h1>
+            <canvas id="summary-chart"></canvas>
+          </div> -->
         </div>
 
         <!-- Quick Tools Division -->
@@ -235,7 +285,7 @@
           <!-- Carousel for the breakfast -->
           <div
             id="breakfast-carousel"
-            class="carousel carousel-dark slide carousel-fade"
+            class="carousel carousel-dark slide carousel-fade custom-carousel"
             data-bs-ride="carousel"
             data-bs-interval="false"
           >
@@ -284,7 +334,7 @@
                       data-bs-target="#quick-food-modal"
                       name="breakfast"
                     >
-                      Quick Add
+                      Add Favourite Food
                     </button>
                   </div>
                 </section>
@@ -326,8 +376,16 @@
                       </button>
                     </a>
                     <a href="./search_food.html">
-                      <button class="btn btn-primary light-theme-btn">
-                        Search Food
+                      <button
+                        class="
+                          btn btn-primary
+                          light-theme-btn
+                          add-carousel-button
+                          search-food-button
+                        "
+                        id="search-breakfast-button"
+                      >
+                        Add Food
                       </button>
                     </a>
                   </div>
@@ -380,7 +438,7 @@
           <!-- Carousel for the lunch -->
           <div
             id="lunch-carousel"
-            class="carousel carousel-dark slide carousel-fade"
+            class="carousel carousel-dark slide carousel-fade custom-carousel"
             data-bs-ride="carousel"
             data-bs-interval="false"
           >
@@ -429,7 +487,7 @@
                       data-bs-target="#quick-food-modal"
                       name="lunch"
                     >
-                      Quick Add
+                      Add Favourite Food
                     </button>
                   </div>
                 </section>
@@ -465,14 +523,24 @@
                     </div>
                   </div>
                   <div class="quick-tools-col-footer">
-                    <a href="./food_diary.html#breakfast-column">
+                    <a href="./food_diary.html#lunch-column">
                       <button class="btn btn-primary light-theme-btn">
                         Food Diary
                       </button>
                     </a>
-                    <button class="btn btn-primary light-theme-btn">
-                      Search Food
-                    </button>
+                    <a href="./search_food.html">
+                      <button
+                        class="
+                          btn btn-primary
+                          light-theme-btn
+                          add-carousel-button
+                          search-food-button
+                        "
+                        id="search-lunch-button"
+                      >
+                        Add Food
+                      </button>
+                    </a>
                   </div>
                 </section>
               </div>
@@ -525,7 +593,7 @@
           <!-- Carousel for the Dinner -->
           <div
             id="dinner-carousel"
-            class="carousel carousel-dark slide carousel-fade"
+            class="carousel carousel-dark slide carousel-fade custom-carousel"
             data-bs-ride="carousel"
             data-bs-interval="false"
           >
@@ -575,7 +643,7 @@
                       data-bs-target="#quick-food-modal"
                       name="dinner"
                     >
-                      Quick Add
+                      Add Favourite Food
                     </button>
                   </div>
                 </section>
@@ -611,14 +679,23 @@
                     </div>
                   </div>
                   <div class="quick-tools-col-footer">
-                    <a href="./food_diary.html#breakfast-column">
+                    <a href="./food_diary.html#dinner-column">
                       <button class="btn btn-primary light-theme-btn">
                         Food Diary
                       </button>
                     </a>
-                    <button class="btn btn-primary light-theme-btn">
-                      Search Food
-                    </button>
+                    <a href="./search_food.html">
+                      <button
+                        class="
+                          btn btn-primary
+                          light-theme-btn
+                          search-food-button
+                        "
+                        id="search-dinner-button"
+                      >
+                        Add Food
+                      </button>
+                    </a>
                   </div>
                 </section>
               </div>
@@ -669,7 +746,7 @@
           <!-- Carousel for the Snack -->
           <div
             id="snack-carousel"
-            class="carousel carousel-dark slide carousel-fade"
+            class="carousel carousel-dark slide carousel-fade custom-carousel"
             data-bs-ride="carousel"
             data-bs-interval="false"
           >
@@ -718,7 +795,7 @@
                       data-bs-target="#quick-food-modal"
                       name="snack"
                     >
-                      Quick Add
+                      Add Favourite Food
                     </button>
                   </div>
                 </section>
@@ -754,14 +831,23 @@
                     </div>
                   </div>
                   <div class="quick-tools-col-footer">
-                    <a href="./food_diary.html#breakfast-column">
+                    <a href="./food_diary.html#snack-column">
                       <button class="btn btn-primary light-theme-btn">
                         Food Diary
                       </button>
                     </a>
-                    <button class="btn btn-primary light-theme-btn">
-                      Search Food
-                    </button>
+                    <a href="./search_food.html">
+                      <button
+                        class="
+                          btn btn-primary
+                          light-theme-btn
+                          search-food-button
+                        "
+                        id="search-snack-button"
+                      >
+                        Add Food
+                      </button>
+                    </a>
                   </div>
                 </section>
               </div>
@@ -824,12 +910,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title" id="exampleModalLabel">Enter Weight</h3>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
         </div>
         <div class="modal-body">
           <form id="weight-change-form">
@@ -864,18 +944,18 @@
         </div>
         <div class="modal-footer">
           <button
-            type="button"
-            class="btn btn-secondary light-theme-btn"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          <button
             id="save-changes"
             type="button"
             class="btn btn-primary light-theme-btn"
           >
             Save changes
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary light-theme-btn"
+            data-bs-dismiss="modal"
+          >
+            Close
           </button>
         </div>
       </div>
@@ -911,22 +991,7 @@
                   alt="heart-icon"
                   style="display: block"
                 />
-                <h2 style="margin-left: 0.25rem" class="active">Favourites</h2>
-              </div>
-            </li>
-            <li>
-              <div
-                style="
-                  display: flex;
-                  flex-direction: row;
-                  align-items: flex-start;
-                "
-              >
-                <img
-                  src="../assets/icons8-most-recent.svg"
-                  alt="image for recent icon"
-                />
-                <h2 style="margin-left: 0.25rem">Recent</h2>
+                <h2 style="margin-left: 0.25rem">Favourites</h2>
               </div>
             </li>
           </ul>
@@ -969,7 +1034,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-secondary btn-lg"
+            class="btn btn-secondary btn-lg light-theme-btn"
             data-bs-dismiss="modal"
           >
             Close

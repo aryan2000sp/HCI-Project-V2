@@ -4,25 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Spartan:wght@300&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Search Food</title>
+    <title>Summary</title>
   </head>
-  <body id="SearchFood-Page">
-    <!-- Navbar -->
+  <body id="Summary-Page">
+    <!-- NavBar -->
     <nav class="custom-navbar light-theme">
       <div class="navbar-content">
         <div class="main-logo">
@@ -135,7 +120,6 @@
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              style="text-decoration: underline"
             >
               Add Food
             </h3>
@@ -184,7 +168,9 @@
 
           <li>
             <h3>
-              <a href="./summary.html">Summary</a>
+              <a href="./summary.html" style="text-decoration: underline"
+                >Summary</a
+              >
             </h3>
           </li>
 
@@ -202,238 +188,63 @@
       </div>
     </nav>
 
-    <!-- Main body of the page -->
     <main>
-      <section class="search-food">
-        <div class="search-food-row row1">
-          <section class="search-food-col col1 search-bar light-theme">
-            <div class="search-bar-header">
-              <h2>
-                Search Food for
-                <span
-                  class="food-timing-category"
-                  style="text-transform: capitalize"
-                ></span>
-              </h2>
-            </div>
-            <div class="search-bar-main">
-              <!-- Add an input textbox and a search button -->
-              <section class="search-input-area">
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="example Chicken"
-                  aria-label="default input example"
-                  id="search-bar"
-                />
-                <button
-                  type="button"
-                  class="btn btn-primary light-theme-btn disabled"
-                  id="search-button"
+      <section class="summary-page">
+        <div class="summary-page-row1 summary-page-row">
+          <!-- Chart section -->
+          <section class="summary-page-col1 summary-page-col light-theme">
+            <div class="summary-page-col-header">
+              <h1 class="bold">Summary Data</h1>
+              <ul>
+                <li
+                  id="weekly-chart-display"
+                  style="text-decoration: underline"
                 >
-                  Search
-                </button>
-              </section>
+                  <h3>Weekly Summary</h3>
+                </li>
+                <li id="monthly-chart-display"><h3>Monthly Summary</h3></li>
+              </ul>
+            </div>
 
-              <section class="matching-food">
-                <h4 class="bold">Matching Food:</h4>
-                <div class="scrollable-list">
-                  <ul class="list-group" id="food-list"></ul>
-                </div>
-              </section>
+            <div class="summary-page-col-main">
+              <canvas id="summary-chart-weekly"></canvas>
+              <canvas id="summary-chart-monthly" style="display: none"></canvas>
             </div>
           </section>
-          <section class="search-food-col col2 food-info light-theme">
-            <div class="food-info-header">
-              <h2>Food Information</h2>
+
+          <!-- Health Tips -->
+          <section class="summary-page-col2 summary-page-col light-theme">
+            <div class="summary-page-col-header">
+              <h1 class="bold">Health Tips</h1>
             </div>
-            <div class="food-info-main">
-              <article
-                class="input-section food-info-main-col food-info-main-col-1"
-              >
-                <h3 class="bold" style="text-transform: capitalize">
-                  <span id="food-name"></span>
-                </h3>
-
-                <!-- Section for the quantity -->
-                <section class="food-input-row">
-                  <label for="staticEmail" class="col-sm-2 col-form-label"
-                    ><p>Quantity:</p></label
-                  >
-                  <div>
-                    <button
-                      type="button"
-                      class="btn btn-primary light-theme-btn disabled"
-                      id="decrease-btn"
-                    >
-                      -
-                    </button>
-                    <input
-                      class="form-control disabled"
-                      type="number"
-                      placeholder="0"
-                      aria-label="default input example"
-                      value="1"
-                      disabled
-                      id="quantity-value"
-                      min="0.5"
-                    />
-                    <button
-                      type="button"
-                      class="btn btn-primary light-theme-btn disabled"
-                      id="increase-btn"
-                    >
-                      +
-                    </button>
-                  </div>
-                </section>
-
-                <!-- Section for the select section -->
-                <section class="food-input-row">
-                  <label for="staticEmail" class="col-sm-2 col-form-label"
-                    ><p>Serving:</p></label
-                  >
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                    disabled
-                    id="serving-select"
-                  ></select>
-                </section>
+            <div class="summary-page-col-main">
+              <article>
+                <h4 class="bold">Limit Sugary Drinks</h4>
+                <p>
+                  Sugary drinks like sodas, fruit juices, and sweetened teas are
+                  the primary source of added sugar in the American diet
+                </p>
               </article>
-              <article
-                class="chart-section food-info-main-col food-info-main-col-2"
-              >
-                <canvas id="food-info-chart" style="display: none"></canvas>
+              <article>
+                <h4 class="bold">Eat nuts and seeds</h4>
+                <p>
+                  Some people avoid nuts because they are high in fat. However,
+                  nuts and seeds are incredibly nutritious. They are packed with
+                  protein, fiber, and a variety of vitamins and minerals
+                </p>
               </article>
-            </div>
-
-            <!-- The footer section -->
-            <div class="food-info-footer">
-              <button
-                type="button"
-                class="btn btn-primary light-theme-btn disabled"
-                id="add-food-info"
-              >
-                Add To
-                <span
-                  class="food-timing-category"
-                  style="text-transform: capitalize"
-                ></span>
-              </button>
-
-              <button
-                type="button"
-                class="btn btn-primary light-theme-btn disabled"
-                id="add-food-favourite"
-              >
-                Add to Favourites
-              </button>
+              <article>
+                <h4 class="bold">Eat plenty of fruits and vegetables</h4>
+                <p>
+                  Vegetables and fruits are loaded with prebiotic fiber,
+                  vitamins, minerals, and antioxidants, many of which have
+                  potent health effects.
+                </p>
+              </article>
             </div>
           </section>
         </div>
-        <!-- <div class="search-food-row row2">
-          <section class="search-food-col col1 favourite-section light-theme">
-            <div class="favourite-section-header">
-              <h2>Favourite Food</h2>
-            </div>
-            <div class="favourite-section-main">
-              <div
-                id="favourite-food-carousel"
-                class="
-                  carousel carousel-dark
-                  slide
-                  carousel-fade
-                  custom-favourite-carousel
-                "
-                data-bs-ride="carousel"
-                data-bs-interval="false"
-              >
-                <div
-                  class="carousel-inner custom-carousel-inner"
-                  id="favourite-carousel-inner"
-                >
-                  <button
-                    class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#favourite-food-carousel"
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      class="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button
-                    class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#favourite-food-carousel"
-                    data-bs-slide="next"
-                  >
-                    <span
-                      class="carousel-control-next-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="search-food-col col2 recent-section light-theme">
-            <div class="recent-section-header">
-              <h2>Recently Added Food</h2>
-            </div>
-          </section>
-        </div> -->
       </section>
     </main>
   </body>
-
-  <!-- Toast for the page -->
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-    <!-- <div
-      id="liveToast"
-      class="toast bg-success text-white"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    >
-      <div class="d-flex">
-        <div class="toast-body">
-          <p style="font-size: 1.25rem" id="food-feedback-message">Hello</p>
-        </div>
-
-        <div>
-          <button
-            type="button"
-            class="btn-close me-2 m-auto"
-            data-bs-dismiss="toast"
-            aria-label="Close"
-          ></button>
-        </div>
-      </div>
-    </div> -->
-
-    <div
-      class="toast align-items-center bg-success text-white"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-      id="liveToast"
-    >
-      <div class="d-flex">
-        <div class="toast-body">
-          <p style="font-size: 1.25rem" id="food-feedback-message">Hello</p>
-        </div>
-        <button
-          type="button"
-          class="btn-close me-2 m-auto"
-          data-bs-dismiss="toast"
-          aria-label="Close"
-        ></button>
-      </div>
-    </div>
-  </div>
 </html>

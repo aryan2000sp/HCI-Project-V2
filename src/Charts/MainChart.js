@@ -84,13 +84,27 @@ export const createMainChart = async (db) => {
   const options = {
     maintainAspectRatio: false,
     plugins: {
-      subtitle: {
+      title: {
         display: true,
-        text: "Custom Chart Subtitle",
-        position: "bottom",
-        padding: 20,
+        text: "Today Macronutrient Count",
+        position: "top",
+        padding: {
+          bottom: 20,
+        },
         font: {
           size: 24,
+        },
+      },
+
+      legend: {
+        position: "right",
+        align: "center",
+
+        labels: {
+          boxWidth: 22,
+          font: {
+            size: 22,
+          },
         },
       },
     },

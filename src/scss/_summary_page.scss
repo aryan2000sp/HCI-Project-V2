@@ -1,0 +1,46 @@
+.summary-page {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-top: 12rem;
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  &-col {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+
+    border-radius: 8px;
+    height: 525px;
+    width: 47%;
+    padding: 1.5rem;
+
+    &-header {
+      margin-bottom: 3.5rem;
+      > ul {
+        margin-top: 1.75rem;
+        display: flex;
+        flex-direction: row;
+        > li {
+          cursor: pointer;
+          list-style: none;
+          &:not(:last-child) {
+            margin-right: 2rem;
+          }
+        }
+      }
+    }
+
+    &-main {
+      height: 300px;
+
+      > article:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}

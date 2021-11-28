@@ -61,5 +61,23 @@ module.exports = {
       template: "./src/pages/search_food.html",
       chunks: ["app"],
     }),
+
+    new HtmlWebpackPlugin({
+      filename: "summary.html",
+      template: "./src/pages/summary.html",
+      chunks: ["app"],
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: "profile.html",
+      template: "./src/pages/profile.html",
+      chunks: ["app"],
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: "simulate.html",
+      template: "./src/pages/simulate.html",
+      chunks: ["app"],
+    }),
   ],
 };

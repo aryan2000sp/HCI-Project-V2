@@ -33,6 +33,7 @@
     "chart.js": "^3.6.0",
     "idb": "^6.1.5",
     "jquery": "^3.6.0",
-    "materialize-css": "^1.0.0-rc.2"
+    "materialize-css": "^1.0.0-rc.2",
+    "util": "^0.12.4"
   }
 }
